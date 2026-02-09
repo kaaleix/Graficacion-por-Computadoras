@@ -57,6 +57,8 @@ Se deberá entregar a la asignación de classroom un enlace al repositorio de gi
 # Fecha de entrega
 La tarea tiene como fecha de entrega el miércoles 18 de Febrero de 2026.
 
+**Nota: Por cada semana de retraso se descontará un punto sobre la calificación máxima de 10**
+
 # Dudas
 Para cualquier duda, comentario o problema con las instalaciones por favor manden correo a:
 ```ramarc2@ciencias.unam.mx```

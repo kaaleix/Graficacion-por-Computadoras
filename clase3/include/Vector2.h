@@ -68,6 +68,28 @@ class Vector2
         }
 
         /**
+         * @brief Operación de escalar por un vector
+         * @param s el escalar
+         * @returns una referencia a si mismo
+         */
+        Vector2& operator*(float s)
+        {
+            m_x = m_x*s;
+            m_y = m_y*s;
+            return *this;
+        }
+
+
+        Vector2 lerp(const Vector2& v, float t)
+        {
+            float nuevo_x = (1-t)*m_x + t*v.m_x;
+            float nuevo_y = (1-t)*m_y + t*v.m_y;
+            return Vector2(nuevo_x,nuevo_y);
+        }
+
+
+
+        /**
          * @brief función que compara dos vectores
          * @param v el vector a comparar
          * @returns true si el vector se encuentra en |v-epsilon|, false en otro caso

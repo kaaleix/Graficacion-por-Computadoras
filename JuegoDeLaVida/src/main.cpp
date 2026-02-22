@@ -129,4 +129,53 @@ int main()
 void calculaEstadosFuturos(const std::vector<Celula*>& celulas)
 {
 	//TODO
+	int index = 0;
+	for(int j = 0; j < 5; j++){ // y
+		for(int i = 0; i < 5; i++){ // x
+			int contadorVecinos = 0;
+			if(j - 1 >= 0){ // y - 1 arriba
+				if(i - 1 >= 0 && celulas.at((j - 1) * 5 + (i - 1)) -> isViva()){
+					contadorVecinos++;
+				}
+				if(celulas.at((j - 1) * 5 + i) -> isViva()){
+					contadorVecinos++;
+				}
+				if(i + 1 < 5 && celulas.at((j - 1) * 5 + (i + 1)) -> isViva()){
+					contadorVecinos++;
+				}
+			}
+	
+			if(j + 1 < 5){ // y + 1 abajo
+				if(i - 1 >= 0 && celulas.at((j + 1) * 5 + (i - 1)) -> isViva()){
+					contadorVecinos++;
+				}
+				if(celulas.at((j + 1) * 5 + i) -> isViva()){
+					contadorVecinos++;
+				}
+				if(i + 1 < 5 && celulas.at((j + 1) * 5 + (i + 1)) -> isViva()){
+					contadorVecinos++;
+				}
+			}
+
+			//izquierda
+			if(i - 1 >= 0 && celulas.at(j * 5 + (i - 1)) -> isViva()){ 
+				contadorVecinos++;
+			}
+			//derecha
+			if(i + 1 < 5 && celulas.at(j * 5 + (i + 1)) -> isViva()){
+					contadorVecinos++;
+			}
+
+			if(celulas.at(index) -> isViva()){ 
+				if(contadorVecinos < 2 || contadorVecinos > 3){
+					celulas.at(index)->setEstadoFuturo(false);
+				} else celulas.at(index)->setEstadoFuturo(true);
+			} else { //esta actualmente muerta
+				if(contadorVecinos == 3){
+					celulas.at(index) -> setEstadoFuturo(true);
+				} else celulas.at(index)->setEstadoFuturo(false);
+			} 
+			index++;
+		}
+	}
 }
